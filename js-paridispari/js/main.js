@@ -2,89 +2,45 @@
 
 // L'utente sceglie pari o dispari
 
-// const userChoice = prompt('Scegli fra Pari e Dispari');
+const userChoice = prompt('Scegli fra Pari e Dispari');
 
-// console.log(userChoice);
-
-const evenButton = document.getElementById('even');
-const oddButton = document.getElementById('odd');
-let userChoice;
-
-console.log(evenButton);
-
-evenButton.addEventListener('click', function(){
-
-    userChoice = 'Pari';
-
-    console.log('La tua scelta è: ' + userChoice);
-
-    return userChoice;
-
-}
-);
-
-oddButton.addEventListener('click', function(){
-
-    userChoice = 'Dispari';
-
-    console.log('La tua scelta è: ' + userChoice);
-
-    return userChoice;
-
-}
-);
+console.log('La tua scelta è: ' + userChoice);
 
 // Poi inserisce un numero da 1 a 5
 
-const selectNumber = document.querySelector('select');
-let userNumber;
+const userNumber = parseInt(prompt('Inserisci un numero da 1 a 5'));
 
-selectNumber.addEventListener('click', function(){
-
-    userNumber = parseInt(selectNumber.value);
-
-    console.log('Il numero da te scelto è: ' + userNumber);
-
-    return userNumber;
-
-}
-);
+console.log('Il numero da te scelto è: ' + userNumber);
 
 // Il pc genera un numero random da 1 a 5
 
-const createButton = document.getElementById('create');
-const pcChoiceOutput = document.getElementById('pc-choice');
 let pcNumber = pcNumberGenerator();
 
-console.log(pcNumber);
-
-createButton.addEventListener('click', function(){
-    
-    pcChoiceOutput.innerHTML = `
-        Recap: tu giocherai con ${userChoice} e ${userNumber}, mentre il Computer con ${pcNumber} 
-    `;
-    
-}
-);
-
+// Somma dei due numeri
 let somma = userNumber + pcNumber;
 
-console.log(somma);
-// const userNumber = parseInt(prompt('Ora inserisci un numero da 1 a 5'));
-
-// console.log('La tua selezione è: ' + userChoice , userNumber);
-
-
-// console.log('Il numero selezionato dal pc è: ' + pcNumber);
-
-
-
-// Somma dei due numeri
-
-// console.log('La somma dei due numeri è: ' + somma);
+console.log('Il numero del pc è: ' + pcNumber , 'La somma è uguale a: ' + somma);
 
 // Stabilire se la somma sia pari o dispari
-let winner = oddAndEven();
+
+console.log('La somma è: ' + somma);
+
+// Dichiarare il vincitore
+let winner = oddAndEven(somma);
+
+console.log('Il vincitore è: ' + winner);
+// Condizione
+if(winner == userChoice) {
+    console.log(`É uscito ${winner}, hai vinto!`)
+} else {
+    console.log('Mannaggia, hai perso!')
+}
+
+
+
+
+
+
 
 function pcNumberGenerator(numeroPc){
 
@@ -96,7 +52,7 @@ function pcNumberGenerator(numeroPc){
 
 function oddAndEven(whoWins){
 
-    if (somma % 2 == 0){
+    if (whoWins % 2 == 0){
         whoWins = 'Pari';
         // console.log('Vince Pari');
     } else {
@@ -105,12 +61,4 @@ function oddAndEven(whoWins){
     }
 
     return whoWins;
-}
-
-// Dichiarare il vincitore
-// Condizione
-if(winner == userChoice) {
-    // console.log(`É uscito ${winner}, hai vinto!`)
-} else {
-    // console.log('Mannaggia, hai perso!')
 }
