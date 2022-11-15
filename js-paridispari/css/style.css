@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #404258;
+}
+
+h1,p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.row {
+    width: 50%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.row div {
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#even {
+    padding: 10px 20px;
+    background-color: #54B435;
+}
+
+#odd {
+    padding: 10px;
+    background-color: #CF0A0A;
+}
+
+#create {
+    padding: 15px;
+    background-color: #0008C1;
+}
+
+#game-winner {
+    padding: 20px;
+    background-color: #F49D1A;
+}
