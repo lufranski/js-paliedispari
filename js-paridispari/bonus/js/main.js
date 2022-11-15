@@ -39,7 +39,7 @@ oddButton.addEventListener('click', function(){
 const selectNumber = document.querySelector('select');
 let userNumber;
 
-selectNumber.addEventListener('click', function(){
+selectNumber.addEventListener('change', function(){
     
     userNumber = parseInt(selectNumber.value);
     
@@ -56,7 +56,6 @@ const createButton = document.getElementById('create');
 const pcChoiceOutput = document.getElementById('pc-choice');
 let pcNumber = pcNumberGenerator();
 
-console.log(pcNumber);
 
 createButton.addEventListener('click', function(){
     
@@ -67,11 +66,13 @@ createButton.addEventListener('click', function(){
 }
 );
 
+console.log(pcNumber);
 
 const winOrNot = document.getElementById('game-winner');
 const winnerOutput = document.getElementById('winner-container');
-let somma; 
-let winner = oddAndEven();
+
+let somma;
+let winner = oddAndEven(somma);
 
 console.log(winOrNot , winnerOutput);
 // Condizioni
@@ -80,12 +81,15 @@ winOrNot.addEventListener('click' , function(){
     
     somma = userNumber + pcNumber;
     
-    console.log(somma);
+    console.log('La somma dei numeri è: ' + somma);
 
-    if (somma % 2 == 0) {
+    if (somma % 2 === 0) {
         
-        winnerOutput.innerHTML = `
-            É uscito ${winner}, hai vinto!
+        // winnerOutput.innerHTML = `
+            // É uscito ${winner}, hai vinto!
+        // `;
+        winnerOutput.innerHTML = ` 
+            Hai vinto!
         `;
     
     } else {
@@ -99,18 +103,7 @@ winOrNot.addEventListener('click' , function(){
 }
 );
 
-// const userNumber = parseInt(prompt('Ora inserisci un numero da 1 a 5'));
-
-// console.log('La tua selezione è: ' + userChoice , userNumber);
-
-
-// console.log('Il numero selezionato dal pc è: ' + pcNumber);
-
-
-
 // Somma dei due numeri
-
-// console.log('La somma dei due numeri è: ' + somma);
 
 // Stabilire se la somma sia pari o dispari
 
@@ -125,20 +118,18 @@ function pcNumberGenerator(numeroPc){
 function oddAndEven(whoWins){
 
     if (whoWins % 2 == 0){
+        
         whoWins = 'Pari';
+        
         // console.log('Vince Pari');
+
     } else {
+        
         whoWins = 'Dispari';
+        
         // console.log('Vince Dispari');
+
     }
 
     return whoWins;
 }
-
-// Dichiarare il vincitore
-// Condizione
-// if(winner == userChoice) {
-//     // console.log(`É uscito ${winner}, hai vinto!`)
-// } else {
-//     // console.log('Mannaggia, hai perso!')
-// }
