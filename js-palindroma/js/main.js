@@ -1,28 +1,52 @@
 // Parola Palindroma
 
 // Chiedere all'utente di inserire una parola
-const userWord = prompt('Inserisci la tua parola');
+// const userWord = prompt('Inserisci la tua parola');
+const wordOutput = document.getElementById('output');
+const inputField = document.querySelector('input');
 
-console.log(userWord);
+console.log(wordOutput , inputField);
 
-let userWordRev = palindromeWord(userWord);
 
-// Condizione
-if (userWord == userWordRev){
+const btn = document.querySelector('button');
+console.log(btn);
+
+// Aggiungere la funzione al click di btn
+btn.addEventListener('click', function(){
     
-    console.log('La parola che hai inserito è palindroma');
+    let userWord = inputField.value;
+    
+    let userWordRev = palindromeWord(userWord);
+    // Condizione
+    if (userWord == userWordRev){
+        
+        // Output positivo
+        
+        // console.log('La parola che hai inserito è palindroma');
+        wordOutput.innerHTML = `
+            La parola che hai inserito &eacute; palindroma!
+        `;
+    
+    } else {
+    
+        // Output negativo
+        
+        // console.log('La parola che hai inserito non è palindroma');
+        wordOutput.innerHTML = `
+            La parola che hai inserito non &eacute; palindroma!
+        `;
 
-} else {
-
-    console.log('La parola che hai inserito non è palindroma');
-
+    }
+    
 }
+);
+
 
 // Capire se la parola inserita è palindroma
 function palindromeWord(parolaUtente){
     
     // Applicare il metodo split alla parola inserita dall'utente
-    let splitUserWord = userWord.split('');
+    let splitUserWord = parolaUtente.split('');
     console.log(splitUserWord);
 
     // Utilizzare il metodo reverse per invertire l'array ottenuto da split
